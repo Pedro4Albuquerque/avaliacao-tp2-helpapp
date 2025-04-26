@@ -1,5 +1,4 @@
-﻿using HelpApp.Domain.Entities;
-using HelpApp.Domain.Validation;
+﻿using HelpApp.Domain.Validation;
 
 namespace HelpApp.Domain.Entities
 {
@@ -13,8 +12,13 @@ namespace HelpApp.Domain.Entities
         public int Stock { get; set; }
         public string Image { get; set; }
         public int CategoryId { get; set; }
+        public Category Category { get; set; }
         #endregion
 
+        public Product()
+        {
+
+        }
         public Product(string name, string description, decimal price, int stock, string image)
         {
             ValidateDomain(name, description, price, stock, image);
@@ -26,10 +30,6 @@ namespace HelpApp.Domain.Entities
             Id = id;
             ValidateDomain(name, description, price, stock, image);
         }
-
-
-
-        public Category Category { get; set; }
 
         private void ValidateDomain(string name, string description, decimal price, int stock, string image)
         {
@@ -50,6 +50,8 @@ namespace HelpApp.Domain.Entities
             DomainExceptionValidation.When(stock < 0, "Invalid stock negative value.");
 
             DomainExceptionValidation.When(image.Length > 250, "Invalid image name, too long, maximum 250 characters.");
+
+            DomainExceptionValidation.When(string.IsNullOrEmpty(image), "Invalid image address, image is required.");
 
         }
     }

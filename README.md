@@ -57,7 +57,16 @@ Insira prints aqui comprovando:
 
 Aplicação bem-sucedida da migration no Azure
 
+![Image](https://github.com/user-attachments/assets/b54b52a5-942b-4dfb-9ac0-4d3cb5757d8c)
+
 Tabelas e dados populados
+
+![Image](https://github.com/user-attachments/assets/bf693b10-9ff3-418b-a0bf-f9eedc0e3f3d)
+
+![Image](https://github.com/user-attachments/assets/08409156-481c-40ea-a887-f8360a99b5dc)
+
+![Image](https://github.com/user-attachments/assets/d6ceff77-cb05-49ee-b17c-405752d2b853)
+
 
 # 👨‍💻 Dados do aluno
 Nome: [Pedro Albuquerque]

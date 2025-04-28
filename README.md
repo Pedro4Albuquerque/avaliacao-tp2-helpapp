@@ -14,18 +14,19 @@ Implementar os repositórios `Category` e `Product` seguindo os padrões da Clea
 ## 🚀 Funcionalidades implementadas
 
 - [x] Repositórios `CategoryRepository` e `ProductRepository`
-- [x] Configurações com `EntityTypeConfiguration` para `Category` e `Product`
+- [x] Configurações com `EntityTypeConfiguration` para `CategoryConfiguration` e `ProductConfiguration`
 - [x] Injeção de dependência configurada (`DependencyInjectionAPI`)
-- [x] Migration `Initial` criada com `HasData()` para categorias
-- [x] Banco de dados SQL Server criado no Azure
-- [x] Migration aplicada com sucesso no Azure via `dotnet ef database update`
+- [x] Migration `Initial` criada com `HasData()` para popular categoris inicias
+- [x] Banco de dados SQL Server local criado
+- [x] Migration aplicada com sucesso utilizando `dotnet ef database update`
+- [x] Swagger configurada para documentação da API
 
 ---
 # 🔧 Comandos utilizados
 ## Criação da migration
 dotnet ef migrations add Initial --project Infra.Data --startup-project WebAPI
 
-## Aplicação no banco de dados (Azure)
+## Aplicação no banco de dados (Local)
 dotnet ef database update --project Infra.Data --startup-project WebAPI
 
 
@@ -35,17 +36,19 @@ dotnet ef database update --project Infra.Data --startup-project WebAPI
 # 🔗 String de conexão (mascarada)
 
 "ConnectionStrings": {
-  "DefaultConnection": "Server=tcp:servidor-sql-aluno.database.windows.net,1433;Initial Catalog=NomeDoBanco;Persist Security Info=False;User ID=aluno_azure;Password=********;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+  "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=HelpAppDb;Trusted-Connection=True;MultipleActiveResultSets=True;"
 }
 
-# ☁️ Configuração no Azure
-SQL Server criado no portal Azure
+# Ambiente Utilizado
+SQL Server Express instalado localmente
 
-Banco de dados nomeado: avaliacao_tp2_aluno
+Banco de dados nomeado: avaliacao_tp2_pedro_albuquerque
 
-IP local autorizado no firewall
+Banco de dados criada autimaticamente via migrations(HellpAppDb)
 
-Autenticação SQL ativada
+Autenticação via Windows Authentication(Trusted_Connectin=True)
+
+Desenvolvimento e testes feitos localmente
 
 Migration aplicada com sucesso diretamente do Visual Studio Terminal
 
@@ -57,18 +60,20 @@ Aplicação bem-sucedida da migration no Azure
 Tabelas e dados populados
 
 # 👨‍💻 Dados do aluno
-Nome: [Seu Nome Aqui]
+Nome: [Pedro Albuquerque]
 Curso: Desenvolvimento de Sistemas – 3º Semestre
 
 Professor: Victor Icoma
 
-Branch da entrega: avaliacao-githubaluno
+Branch da entrega: avaliacao-Pedro4Albuquerque
 
 ## 🧱 Estrutura da aplicação
 
 ```bash
 📦 src
  ┣ 📂 Domain
+ ┃ ┣ Entities
+ ┃ ┣ Interfaces
  ┣ 📂 Application
  ┣ 📂 Infra
  ┃ ┣ 📂 Data
@@ -76,4 +81,5 @@ Branch da entrega: avaliacao-githubaluno
  ┃ ┃ ┣ 📂 Repositories
  ┃ ┃ ┗ 📂 EntityConfiguration
  ┗ 📂 WebAPI
-
+ ┃ ┣  Progam.cs
+ ┃ ┣  Appsettings.json
